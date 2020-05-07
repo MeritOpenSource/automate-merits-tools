@@ -5,9 +5,15 @@
   "repository": "git@github.com:ProjectSigmaApps/automate-merits-tools.git",
   "author": "Merit International",
   "license": "MIT",
+  "scripts": {
+    "build": "pkg . -o ./release/amt-cli -t linux,macos,win"
+  },
   "dependencies": {
     "csv-parser": "^2.3.2",
     "csv-writer": "^1.6.0",
     "sade": "^1.7.3"
+  },
+  "devDependencies": {
+    "pkg": "^4.4.8"
   }
 }

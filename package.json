@@ -1,0 +1,13 @@
+{
+  "name": "automate-merits-tools",
+  "bin": "./bin/amt-cli",
+  "version": "1.0.0",
+  "repository": "git@github.com:ProjectSigmaApps/automate-merits-tools.git",
+  "author": "Merit International",
+  "license": "MIT",
+  "dependencies": {
+    "csv-parser": "^2.3.2",
+    "csv-writer": "^1.6.0",
+    "sade": "^1.7.3"
+  }
+}

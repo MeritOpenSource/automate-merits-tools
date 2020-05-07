@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+
+const sade = require("sade");  
+const convert = require("../src/convert");
+
+const prog = sade("amt-cli");
+
+prog.version('1.0.0');
+
+prog
+  .command("convert <input> <output>")
+  .option("-s, --separator", "The separator used in the input file", "|")
+  .describe("Transform a character separated file into a csv")
+  .action(convert.execute);
+
+prog.parse(process.argv);

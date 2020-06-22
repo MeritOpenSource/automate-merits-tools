@@ -207,6 +207,11 @@ core-util-is@1.0.2, core-util-is@~1.0.0:
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
   integrity sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
 
+csv-parse@^4.9.1:
+  version "4.9.1"
+  resolved "https://registry.yarnpkg.com/csv-parse/-/csv-parse-4.9.1.tgz#96e645520a1c95cbec1ffecb7513ebba61766269"
+  integrity sha512-DSoBx9V5PpAVWZbqqYKaoxYsf6yQdltTlUmZ1gPjvoTeRI5wPDlwa6ovrmeUP/1y4MjUkAPXx17aPlu0E6xBvg==
+
 csv-parser@^2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/csv-parser/-/csv-parser-2.3.2.tgz#3a4146abb9a0be7c3cbcae9c289f0a7e622dc07b"
@@ -576,6 +581,11 @@ mkdirp@^0.5.1:
   integrity sha512-NKmAlESf6jMGym1++R0Ra7wvhV+wFW63FaSOFPwRahvea0gMUcGUhVeAg/0BC0wiv9ih5NYPB1Wn1UEI1/L+xQ==
   dependencies:
     minimist "^1.2.5"
+
+moment@^2.25.3:
+  version "2.25.3"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.25.3.tgz#252ff41319cf41e47761a1a88cab30edfe9808c0"
+  integrity sha512-PuYv0PHxZvzc15Sp8ybUCoQ+xpyPWvjOuK72a5ovzp2LI32rJXOiIfyoFoYvG3s6EwwrdkMyWuRiEHSZRLJNdg==
 
 mri@^1.1.0:
   version "1.1.5"

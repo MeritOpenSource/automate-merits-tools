@@ -6,11 +6,13 @@
   "author": "Merit International",
   "license": "MIT",
   "scripts": {
-    "build": "pkg . -o ./release/amt-cli -t linux,macos,win"
+    "build": "pkg . -o ./release/convert -t linux,macos,win"
   },
   "dependencies": {
+    "csv-parse": "^4.9.1",
     "csv-parser": "^2.3.2",
     "csv-writer": "^1.6.0",
+    "moment": "^2.25.3",
     "sade": "^1.7.3"
   },
   "devDependencies": {

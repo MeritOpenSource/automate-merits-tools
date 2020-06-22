@@ -10,6 +10,7 @@ prog.version('1.0.0');
 prog
   .command("convert <input> <output>")
   .option("-s, --separator", "The separator used in the input file", "|")
+  .option("-d, --date", "The format of dates in the input file", "MM/DD/YYYY")
   .describe("Transform a character separated file into a csv")
   .action(convert.execute);
 

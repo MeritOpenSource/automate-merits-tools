@@ -1,0 +1,65 @@
+const csv = require("csv-parse");
+const csvWriter = require("csv-writer");
+const faker = require("faker");
+const fs = require("fs");
+const path = require("path");
+
+const {forPercent, generateFutureDate} = require("./common");
+
+exports.execute = (input, output, { email, operations }) => {
+  const header = [];
+  const records = [];
+  const ops = operations.split(",").map(_ => _.trim());
+
+  let hasHeader = false;
+
+  fs.createReadStream(input)
+    .pipe(csv())
+    .on("data", data => {
+      const shouldEdit = ops.includes("edit") && forPercent(50, true, false);
+
+      for (let id in data) {
+        if (!hasHeader) {
+          const title = data[id];
+          if (typeof title === "string" && title.trim().length > 0) {
+            header.push({ id, title });
+          }
+        } else {
+          const { title } = header.find(_ => _.id === id) || {};
+
+          if (shouldEdit) {
+            if (/date/i.test(title)) {
+              data[id] = generateFutureDate(data[id]);
+            }
+          }
+
+          if (ops.includes("transfer")) {
+            if (/email/i.test(title)) {
+              data[id] = forPercent(
+                !!data[id] ? 10 : 75,
+                () => faker.internet.email(undefined, undefined, email),
+                data[id]
+              )
+            }
+          }
+
+          if (ops.includes("revoke")) {
+            if (/revoked/i.test(title)) {
+              data[id] = forPercent(50, !data[id], data[id])
+            }
+          }
+        }
+      }
+
+      if (!hasHeader) {
+        hasHeader = true;
+      } else {
+        records.push(data);
+      }
+    })
+    .on("end", () => {
+      const writer = csvWriter.createObjectCsvWriter({ path: path.resolve(output), header });
+      writer.writeRecords(records)
+        .then(() => console.log(`Finished writing to ${output}`))
+    });
+};

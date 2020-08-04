@@ -16,7 +16,8 @@ const header = [
   { id: "expirationDate", title: "Expiration Date" },
   { id: "suspended", title: "Suspended" },
   { id: "revoked", title: "Revoked" },
-  { id: "revokeReason", title: "Revoke Reason" }
+  { id: "revokeReason", title: "Revoke Reason" },
+  { id: "longText", title: "Long Text" }
 ]
 
 exports.execute = (output, { count, email }) => {
@@ -41,6 +42,7 @@ exports.execute = (output, { count, email }) => {
       suspended: forPercent(20, true),
       revoked: false,
       revokeReason: faker.lorem.words(10),
+      longText: firstName.repeat(20),
     });
   }
 

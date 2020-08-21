@@ -20,7 +20,7 @@ const header = [
   { id: "longText", title: "Long Text" }
 ]
 
-exports.execute = (output, { count, email }) => {
+exports.execute = (output, { count, email, memberless }) => {
   const records = [];
   const writer = csv.createObjectCsvWriter({ path: path.resolve(output), header });
 
@@ -30,7 +30,7 @@ exports.execute = (output, { count, email }) => {
     const { dateIssued, expirationDate } = getIssuedAndExpiredDate();
 
     records.push({
-      email: forPercent(75, () => faker.internet.email(firstName, lastName, email)),
+      email: memberless ? "" : forPercent(75, () => faker.internet.email(firstName, lastName, email)),
       firstName,
       lastName,
       city: faker.address.city(),

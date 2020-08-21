@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const sade = require("sade");  
+const sade = require("sade");
 const convert = require("../src/convert");
 const generate = require("../src/generate");
 const modify = require("../src/modify");
@@ -20,6 +20,7 @@ prog
   .command("generate <output>")
   .option("-c, --count", "The number of rows to generate", 10e3 + 1)
   .option("-e, --email", "The email provider used on generated email addresses", "gomerits.testing.com")
+  .option("-m, --memberless", "Whether the spreadsheet should only have memberless merits", false)
   .describe("Generate a large fake dataset for load testing automate merits")
   .action(generate.execute);
 

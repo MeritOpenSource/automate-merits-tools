@@ -45,7 +45,7 @@ exports.execute = (input, output, { email, operations }) => {
 
           if (ops.includes("revoke")) {
             if (/revoked/i.test(title)) {
-              data[id] = forPercent(50, !data[id], data[id])
+              data[id] = forPercent(50, !!data[id], data[id])
             }
           }
         }

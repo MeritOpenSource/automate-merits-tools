@@ -17,6 +17,7 @@ exports.execute = (input, output, { email, operations }) => {
     .pipe(csv())
     .on("data", data => {
       const shouldEdit = ops.includes("edit") && forPercent(50, true, false);
+      let isMeritTransferred = false;
 
       for (let id in data) {
         if (!hasHeader) {
@@ -35,15 +36,21 @@ exports.execute = (input, output, { email, operations }) => {
 
           if (ops.includes("transfer")) {
             if (/email/i.test(title)) {
+              const isMemberless = !data[id];
+
               data[id] = forPercent(
-                !!data[id] ? 10 : 75,
+                isMemberless ? 75 : 10,
                 () => faker.internet.email(undefined, undefined, email),
                 data[id]
-              )
+              );
+                
+              if (isMemberless && data[id]) {
+                isMeritTransferred = true;
+              }
             }
           }
 
-          if (ops.includes("revoke")) {
+          if (ops.includes("revoke") && !isMeritTransferred) {
             if (/revoked/i.test(title)) {
               data[id] = forPercent(50, !!data[id], data[id])
             }

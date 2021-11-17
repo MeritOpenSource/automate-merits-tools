@@ -1,5 +1,5 @@
-const faker = require("faker");
-const moment = require("moment");
+import faker from "faker";
+import moment from "moment";
 
 
 function forPercent(percentage, value, alternate = null) {
@@ -7,7 +7,7 @@ function forPercent(percentage, value, alternate = null) {
     return !!value && !!value.call ? value() : value;
   }
 
-  return !!alternate &&!!alternate.call ? alternate() : alternate;
+  return !!alternate && !!alternate.call ? alternate() : alternate;
 }
 
 function generateFutureDate(referenceDate = null) {

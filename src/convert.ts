@@ -1,8 +1,8 @@
-const csv = require("csv-parse");
-const csvWriter = require("csv-writer");
-const fs = require("fs");
-const moment = require("moment");
-const path = require("path");
+import csv from 'csv-parse';
+import * as csvWriter from "csv-writer";
+import fs from "fs";
+import moment from "moment";
+import path from "path";
 
 exports.execute = (input, output, { separator, date }) => {
   const header = [];

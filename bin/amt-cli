@@ -20,6 +20,7 @@ prog
   .command("generate <output>")
   .option("-c, --count", "The number of rows to generate", 10e3 + 1)
   .option("-e, --email", "The email provider used on generated email addresses", "gomerits.testing.com")
+  .option("-f, --filter", "The filtered list of headers to use", "email,firstName,lastName,city,state,zipCode,licenseNumber,dateIssued,expirationDate,suspended,revoked,revokeReason,longText")
   .option("-m, --memberless", "Whether the spreadsheet should only have memberless merits", false)
   .describe("Generate a large fake dataset for load testing automate merits")
   .action(generate.execute);

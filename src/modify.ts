@@ -1,10 +1,10 @@
-const csv = require("csv-parse");
-const csvWriter = require("csv-writer");
-const faker = require("faker");
-const fs = require("fs");
-const path = require("path");
+import csv from "csv-parse";
+import * as csvWriter from "csv-writer";
+import faker from "faker";
+import fs from "fs";
+import path from "path";
 
-const {forPercent, generateFutureDate} = require("./common");
+const { forPercent, generateFutureDate } = require("./common");
 
 exports.execute = (input, output, { email, operations }) => {
   const header = [];
@@ -43,7 +43,7 @@ exports.execute = (input, output, { email, operations }) => {
                 () => faker.internet.email(undefined, undefined, email),
                 data[id]
               );
-                
+
               if (isMemberless && data[id]) {
                 isMeritTransferred = true;
               }

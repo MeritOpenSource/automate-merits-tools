@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 const sade = require("sade");
-const convert = require("../src/convert");
-const generate = require("../src/generate");
-const modify = require("../src/modify");
+const convert = require("../dist/convert");
+const generate = require("../dist/generate");
+const modify = require("../dist/modify");
 
 const prog = sade("amt-cli");
 

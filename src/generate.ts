@@ -1,8 +1,8 @@
-const csv = require("csv-writer");
-const faker = require("faker");
-const path = require("path");
+import * as csv from "csv-writer";
+import faker from "faker";
+import path from "path";
 
-const {forPercent, getIssuedAndExpiredDate} = require("./common");
+const { forPercent, getIssuedAndExpiredDate } = require("./common");
 
 const header = [
   { id: "email", title: "Email" },
@@ -10,7 +10,7 @@ const header = [
   { id: "lastName", title: "Last Name" },
   { id: "city", title: "City" },
   { id: "state", title: "State" },
-  { id: "zipCode", title: "Zip Code"},
+  { id: "zipCode", title: "Zip Code" },
   { id: "licenseNumber", title: "License Number" },
   { id: "dateIssued", title: "Date Issued" },
   { id: "expirationDate", title: "Expiration Date" },

@@ -6,14 +6,16 @@
   "author": "Merit International",
   "license": "MIT",
   "scripts": {
-    "build": "pkg . -o ./release/amt -t linux,macos,win"
+    "build": "yarn run compile && pkg . -o ./release/amt -t linux,macos,win",
+    "compile": "yarn run tsc -b"
   },
   "dependencies": {
     "csv-parse": "^4.9.1",
     "csv-writer": "^1.6.0",
     "faker": "^4.1.0",
     "moment": "^2.25.3",
-    "sade": "^1.7.3"
+    "sade": "^1.7.3",
+    "typescript": "^4.5.2"
   },
   "devDependencies": {
     "pkg": "^4.4.8"
